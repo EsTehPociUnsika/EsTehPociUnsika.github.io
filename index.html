@@ -115,7 +115,13 @@
     .card{
       background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);
     }
-    .product img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:8px}
+    .product img {
+  width: 100%;
+  height: 200px;          /* tinggi tetap */
+  object-fit: contain;    /* biar gambar utuh, tidak kepotong */
+  background: #fff;       /* warna dasar di belakang gambar */
+  display: block;
+}
     .product h3{margin:6px 0 0}
     .product p{margin:6px 0;color:var(--muted);font-size:14px}
 
@@ -543,6 +549,7 @@
 </body>
 
 </html>
+
 
 
 
