@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Es Teh Poci UNSIKA — Segarnya Sampai ke Kelas</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Es Teh Poci UNSIKA - inisiatif mahasiswa untuk bantu petani teh lokal. Antar ke kelas, kos, dan area kampus UNSIKA."/>
+  <style>
+    /* ---------- Reset & Base ---------- */
+    :root{
+      --bg: #fffaf0;
+      --accent: #f08b00; /* orange */
+      --accent-2: #ffd166; /* yellow */
+      --muted:#6b6b6b;
+      --card:#ffffff;
+      --shadow: 0 6px 18px rgba(15,15,15,0.08);
+      --glass: rgba(255,255,255,0.6);
+      --maxw: 1100px;
+      --radius: 14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#fffdf7 0%, #fff7ea 100%);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{width:100%; max-width:var(--maxw);}
+
+    /* ---------- Header ---------- */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .logo{
+      width:64px;height:64px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow: var(--shadow);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;
+    }
+    .brand h1{margin:0;font-size:20px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* gambar memenuhi kotak */
+  border-radius: 12px; /* biar ikut rounded kotak */
+}
+
+
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{
+      background:var(--accent); color:#fff; border:none; padding:10px 14px;border-radius:10px;cursor:pointer;
+      box-shadow:0 6px 14px rgba(240,139,0,0.18); font-weight:600;
+    }
+    .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(240,139,0,0.12)}
+
+    /* ---------- Hero ---------- */
+    .hero{
+      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+      padding:26px;border-radius:18px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 380px;gap:20px;
+      align-items:center;margin-bottom:20px;
+    }
+    .hero-left h2{margin:0;font-size:28px}
+    .tag{display:inline-block;margin-top:10px;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,0.04);font-weight:600}
+    .hero-left p{color:var(--muted);margin:12px 0 18px}
+    .kartu{
+      display:flex;gap:10px;
+    }
+    .kartu .k{
+      background:var(--card);padding:10px;border-radius:12px;flex:1;box-shadow:var(--shadow);
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .k .price{font-weight:700;font-size:18px}
+    .hero-right{
+      display:flex;flex-direction:column;gap:10px;align-items:center;
+    }
+    .bottle {
+  width: 220px;
+  height: 220px;
+  border-radius: 18px;
+  background-image: url('https://tse1.mm.bing.net/th/id/OIP.bMi79kYEqaVkpjSRyWxNXQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+    .trust{
+      display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted)
+    }
+
+    /* ---------- Sections ---------- */
+    section{margin-bottom:20px}
+    .grid{
+      display:grid;gap:14px;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    }
+    .card{
+      background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);
+    }
+    .product img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:8px}
+    .product h3{margin:6px 0 0}
+    .product p{margin:6px 0;color:var(--muted);font-size:14px}
+
+    /* ---------- Video ---------- */
+    .video-wrap{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden}
+    .video-wrap iframe{position:absolute;left:0;top:0;width:100%;height:100%;border:0}
+
+
+    /* ---------- Order bar (sticky) ---------- */
+    .orderbar{
+      position:sticky;bottom:18px;padding:12px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      display:flex;gap:12px;align-items:center;color:white;box-shadow:0 16px 40px rgba(240,139,0,0.22);
+      margin-top:8px;
+    }
+    .orderbar .whats{display:flex;gap:10px;align-items:center;font-weight:700}
+    .orderbar small{opacity:.95;font-weight:600}
+
+    /* ---------- Team ---------- */
+    .team-item{display:flex;gap:12px;align-items:center}
+    .team-item img{width:64px;height:64px;border-radius:12px;object-fit:cover}
+    .meta small{display:block;color:var(--muted)}
+
+    /* ---------- Footer ---------- */
+    footer{padding:16px;border-radius:12px;background:transparent;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;align-items:center}
+
+    /* ---------- Modal & Form ---------- */
+    .modal{
+      position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(10,10,10,0.35);z-index:60;
+    }
+    .modal.open{display:flex}
+    .modal .box{width:100%;max-width:520px;background:white;padding:18px;border-radius:12px;box-shadow:var(--shadow)}
+    .form-row{display:flex;gap:10px;margin-bottom:10px}
+    input[type=text],input[type=tel],textarea,select{
+      width:100%;padding:10px;border-radius:8px;border:1px solid #eee;font-size:14px;
+    }
+    textarea{min-height:90px;resize:vertical}
+    .close{background:transparent;border:none;font-size:18px;cursor:pointer}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr; text-align:center}
+      nav{display:none}
+      header{align-items:flex-start}
+      .wrap{padding-bottom:80px}
+    }
+    /* ---------- small animations ---------- */
+    .fade-in{opacity:0;transform:translateY(8px);animation:fadeIn .6s forwards}
+    @keyframes fadeIn{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <header class="fade-in" style="animation-delay:.05s">
+      <div class="brand">
+     <div class="header-wrapper">
+ <div class="logo">
+  <a href="https://ibb.co.com/0VdPMMjx">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNVTV-VF07iOTgmxZkEuwgewMUAb9un37CT85ky5ljmiMW426ADuRSn7DfeIh_xFoL_aJ6eucZEZTDvFtf_rP_ueDotmr3YDyrK9h9zwRGn4pdRfvR0aBYhVutTrfP2xAbBfoEI1k1-JKigzgnG4_vocpe2JO8gfsOqcxoOg1mMoxUjRVTvDdxGyGjRA/s16000/logo-es-teh-poci.png" 
+         alt="Logo Es Teh Poci">
+  </a>
+</div>
+    
+          <h1>Es Teh Poci UNSIKA</h1>
+          <p>Segarnya Sampai ke Kelas · Inisiatif Mahasiswa untuk Petani Lokal</p>
+        </div>
+      </div>
+
+      <nav>
+        <button class="btn" onclick="scrollToSection('products')">Produk</button>
+        <button class="btn secondary" onclick="scrollToSection('about')">Tentang Kami</button>
+        <button class="btn" id="orderNowBtn">Pesan Sekarang</button>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero fade-in" style="animation-delay:.1s" id="home">
+      <div class="hero-left">
+        <span class="tag">Minuman Kampus — Antar sampai kelas & kos</span>
+        <h2>Es Teh Poci UNSIKA</h2>
+        <p>Kami membantu petani teh lokal menjual hasil panennya dalam bentuk <strong>Es Teh Poci</strong> segar, alami, dan bebas pengawet. Pesan mudah — antar sampai kelas, kos, atau tempat nongkrongmu di area kampus.</p>
+
+        <div class="kartu" role="list">
+          <div class="k">
+            <div style="font-size:13px;color:var(--muted)">Varian Favorit</div>
+            <div class="price">Es Teh Original — Rp 6.000</div>
+            <div style="font-size:13px;color:var(--muted)">Terbuat dari daun teh poci asli dari petani mitra.</div>
+            <div style="margin-top:8px">
+              <button class="btn" onclick="openOrder('Es Teh Original',6000)">Pesan Sekarang</button>
+              <button class="btn secondary" onclick="scrollToSection('products')">Lihat Produk</button>
+            </div>
+          </div>
+          <div class="k">
+            <div style="font-size:13px;color:var(--muted)">Keunggulan</div>
+            <ul style="margin:6px 0 0 18px;color:var(--muted);padding:0">
+              <li>Asli dari petani lokal</li>
+              <li>Harga mahasiswa</li>
+              <li>Antar ke kelas & kos</li>
+            </ul>
+            <div style="margin-top:auto">
+              <div class="trust">✔ Pembayaran COD / Transfer • ✔ Kebersihan terjaga</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="bottle" aria-hidden="true"></div>
+        <div style="text-align:center">
+          <div style="font-weight:700">Gratis antar (area kampus*)</div>
+          <div style="font-size:13px;color:var(--muted)">*Syarat & ketentuan berlaku</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produk -->
+    <section id="products" class="fade-in" style="animation-delay:.15s">
+      <h2>Produk Kami</h2>
+      <p style="color:var(--muted)">Pilih varian segar favoritmu — semua dibuat dari hasil panen petani teh mitra.</p>
+
+      <div class="grid" style="margin-top:12px">
+        <!-- Product card 1 -->
+        <div class="card product">
+          <img src="	https://estehpoci.id/img/products/original/ETP%20-%20Menu%20for%20Website%20ORI-01.png" alt="Es Teh Original">
+          <h3>Es Teh Original</h3>
+          <p>Rasa teh pekat asli poci — sejuk, segar, dan otentik.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div style="font-weight:700">Rp 6.000</div>
+            <div>
+              <button class="btn" onclick="openOrder('Es Teh Original',6000)">Pesan</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product card 2 -->
+        <div class="card product">
+          <img src="https://estehpoci.id/img/products/fruity/ETP%20-%20Menu%20for%20Website%20FRUITY-03.png" alt="Es Teh Apel">
+          <h3>Es Teh Apel</h3>
+          <p>Es teh poci + sentuhan apel segar untuk yang suka rasa manis.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div style="font-weight:700">Rp 7.000</div>
+            <div><button class="btn" onclick="openOrder('Es Teh Apel',7000)">Pesan</button></div>
+          </div>
+        </div>
+
+        <!-- Product card 3 -->
+        <div class="card product">
+          <img src="https://estehpoci.id/img/products/creamy/ETP%20-%20Menu%20for%20Website%20CREAMY-01.png" alt="Es Teh Susu">
+          <h3>Es Teh Susu</h3>
+          <p>Perpaduan teh poci dengan susu segar — creamy dan lembut.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div style="font-weight:700">Rp 8.000</div>
+            <div><button class="btn" onclick="openOrder('Es Teh Susu',8000)">Pesan</button></div>
+          </div>
+        </div>
+
+        <!-- Product card 4 -->
+        <div class="card product">
+          <img src="https://estehpoci.id/img/products/fruity/ETP%20-%20Menu%20for%20Website%20FRUITY-05.png" alt="Es Teh Lychee">
+          <h3>Es Teh Lychee</h3>
+          <p>Varian buah yang menyegarkan, cocok untuk santai sore di kampus.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div style="font-weight:700">Rp 9.000</div>
+            <div><button class="btn" onclick="openOrder('Es Teh Lychee',9000)">Pesan</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- Video Produk -->
+<div class="video-wrap card" style="margin-top:12px">
+  <iframe 
+    src="https://www.youtube.com/embed/ZAIqH52iSGs" 
+    title="Es Teh Poci Video" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
+</section>
+
+
+    <!-- Tentang Kami -->
+    <section id="about" class="fade-in" style="animation-delay:.2s">
+      <h2>Tentang Kami</h2>
+      <p style="color:var(--muted)">Es Teh Poci UNSIKA adalah program mahasiswa UNSIKA yang bekerja sama dengan petani teh lokal untuk meningkatkan nilai jual hasil panen mereka. Kami menjual minuman berbahan dasar teh poci asli, dikemas segar, dan dijual dengan harga terjangkau untuk mahasiswa.</p>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h3>Visi</h3>
+          <p style="color:var(--muted)">Menjadi jembatan pemasaran hasil pertanian lokal ke komunitas kampus.</p>
+        </div>
+        <div class="card">
+          <h3>Misi</h3>
+          <ul style="color:var(--muted);margin:0 0 0 18px">
+            <li>Meningkatkan pendapatan petani mitra.</li>
+            <li>Menyediakan minuman sehat dan alami untuk mahasiswa.</li>
+            <li>Menciptakan model bisnis sosial yang berkelanjutan.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Ceritakan Petani</h3>
+          <p style="color:var(--muted)">Bekerja sama dengan petani di Karawang. Mereka panen daun teh poci secara tradisional — kami keringkan dan olah menjadi minuman segar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tim (8-10 orang) -->
+    <section id="team" class="fade-in" style="animation-delay:.22s">
+      <h2>Tim Pelaksana</h2>
+      <p style="color:var(--muted)">Tim gabungan dari beberapa angkatan dan jurusan di UNSIKA.</p>
+      <div class="grid" style="margin-top:12px">
+        <!-- contoh 8 orang -->
+        <div class="card team-item">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Anggota 1">
+          <div class="meta"><strong>Fauzan B. T.</strong><small>Agribisnis - 2510631200113</small><small>Koordinator Lapangan</small></div>
+        </div>
+        <div class="card team-item">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Anggota 2">
+          <div class="meta"><strong>Anersa B. A.</strong><small>Agribisnis - 2510631200043</small><small>Pengolahan & Kualitas</small></div>
+        </div>
+        <div class="card team-item">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Anggota 3">
+          <div class="meta"><strong>M. A. Rizqi R.</strong><small>Agribisnis - 2510631200121</small><small>Logistik & Antar</small></div>
+        </div>
+        <div class="card team-item">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Anggota 4">
+          <div class="meta"><strong>Usi Sulastri</strong><small>Agribisnis - 2510631200093</small><small>Pemasaran & Sosmed</small></div>
+        </div>
+        <div class="card team-item">
+          <img src="https://randomuser.me/api/portraits/men/70.jpg" alt="Anggota 5">
+          <div class="meta"><strong>Varisa A. P. I. k.</strong><small>Agribisnis - 2510631200094</small><small>IT & Pemesanan</small></div>
+        </div>
+        <div class="card team-item">
+          <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Anggota 6">
+          <div class="meta"><strong>Vega Sidik R.</strong><small>Agribisnis - 2510631200137</small><small>Kontrol Nutrisi</small></div>
+        </div>
+        <div class="card team-item">
+          <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="Anggota 7">
+          <div class="meta"><strong>Zahraan Daud</strong><small>Agribisnis - 2510631200097</small><small>Keuangan</small></div>
+        </div>
+        <div class="card team-item">
+          <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="Anggota 8">
+          <div class="meta"><strong>M. N. Adz'dzaky</strong><small>Agribisnis - 2510631200140</small><small>Desain & Foto Produk</small></div>
+        </div>
+          <div class="card team-item">
+          <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="Anggota 9">
+          <div class="meta"><strong>Wafiq Azizah</strong><small>Agribisnis - 2510631200138</small><small>Desain & Foto Produk</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="fade-in" style="animation-delay:.24s">
+      <h2>Kontak & Cara Pemesanan</h2>
+      <p style="color:var(--muted)">Untuk pemesanan praktis, klik WhatsApp atau isi formulir ini. Kami siap antar sampai kelas, kos, atau titik temu di kampus.</p>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <div class="card" style="flex:1;min-width:260px">
+          <h3>Pesan Lewat WhatsApp</h3>
+          <p style="color:var(--muted)">Klik tombol di bawah untuk chat cepat:</p>
+          <!-- Ganti nomornya dengan nomor WA resmi, format internasional tanpa + -->
+          <a class="btn" href="https://wa.me/6283865211525?text=Halo%20Es%20Teh%20Poci%20UNSIKA%2C%20saya%20ingin%20pesan%20..." target="_blank" rel="noopener">Chat WhatsApp</a>
+          <div style="margin-top:10px;color:var(--muted)"><strong>Pickup:</strong> Area Kampus UNSIKA • <strong>Delivery:</strong> Antar ke kelas & kos</div>
+        </div>
+
+        <div class="card" style="flex:1;min-width:260px">
+          <h3>Formulir Kontak</h3>
+          <form id="contactForm" onsubmit="sendForm(event)">
+            <div class="form-row">
+              <input type="text" id="name" placeholder="Nama" required>
+            </div>
+            <div class="form-row">
+              <input type="tel" id="phone" placeholder="Nomor HP (WhatsApp)" required>
+            </div>
+            <div class="form-row">
+              <select id="orderProduct" required>
+                <option value="">Pilih produk...</option>
+                <option value="Es Teh Original|6000">Es Teh Original — Rp 6.000</option>
+                <option value="Es Teh Apel|7000">Es Teh Lemon — Rp 7.000</option>
+                <option value="Es Teh Susu|8000">Es Teh Susu — Rp 8.000</option>
+                <option value="Es Teh Lychee|9000">Es Teh Lychee — Rp 9.000</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <textarea id="note" placeholder="Alamat / kelas / kos / catatan"></textarea>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="btn" type="submit">Kirim Pesan</button>
+              <button class="btn secondary" type="button" onclick="openWhatsAppPreset()">Pesan via WA</button>
+            </div>
+            <p id="formMsg" style="color:green;margin-top:8px;display:none">Pesan siap dikirim ke WhatsApp…</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="fade-in" style="animation-delay:.26s">
+      <div>© 2025 Es Teh Poci UNSIKA — Inisiatif Mahasiswa untuk Petani Lokal</div>
+      <div style="text-align:right">
+        <div style="font-weight:700">Tagline:</div>
+        <div style="font-size:13px;color:var(--muted)">“Segarnya Sampai ke Kelas, Nikmatnya Sampai ke Hati!”</div>
+      </div>
+    </footer>
+
+    <!-- Sticky order bar -->
+    <div style="height:10px"></div>
+    <div class="orderbar fade-in" style="animation-delay:.28s">
+      <div style="flex:1">
+        <div style="font-weight:800">Es Teh Poci UNSIKA</div>
+        <small>Antar ke kelas & kos • Bayar COD / Transfer</small>
+      </div>
+      <div class="whats">
+        <a id="waLinkSticky" href="https://wa.me/6283865211525?text=Halo%20Es%20Teh%20Poci%20UNSIKA%2C%20saya%20ingin%20pesan..." target="_blank" style="color:white;text-decoration:none">
+          <svg style="vertical-align:middle" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48a11.95 11.95 0 00-16.92 0c-4.69 4.69-4.69 12.32 0 17.01L2 22l3.51-1.6a11.95 11.95 0 0016.92-17.01z" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          &nbsp;Pesan via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal order -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="box" role="dialog" aria-modal="true">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <strong>Form Pemesanan</strong>
+        <button class="close" onclick="closeModal()">✕</button>
+      </div>
+      <form id="orderForm" onsubmit="submitOrder(event)">
+        <div class="form-row">
+          <input type="text" id="o_name" placeholder="Nama" required>
+        </div>
+        <div class="form-row">
+          <input type="tel" id="o_phone" placeholder="Nomor WhatsApp" required>
+        </div>
+        <div class="form-row">
+          <input type="text" id="o_product" placeholder="Produk" readonly required>
+        </div>
+        <div class="form-row">
+          <input type="text" id="o_qty" placeholder="Jumlah (pcs)" value="1" required>
+        </div>
+        <div class="form-row">
+          <textarea id="o_note" placeholder="Alamat / kelas / kos / catatan"></textarea>
+        </div>
+        <div style="display:flex;gap:8px;justify-content:flex-end">
+          <button class="btn secondary" type="button" onclick="closeModal()">Batal</button>
+          <button class="btn" type="submit">Kirim ke WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // ---------- Helper ----------
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    // Open order modal with prefilled product
+    function openOrder(product, price){
+      document.getElementById('o_product').value = product + ' — Rp ' + (price ? price.toLocaleString() : '');
+      document.getElementById('modal').classList.add('open');
+      document.getElementById('modal').setAttribute('aria-hidden','false');
+      document.getElementById('o_name').focus();
+    }
+    function closeModal(){
+      document.getElementById('modal').classList.remove('open');
+      document.getElementById('modal').setAttribute('aria-hidden','true');
+    }
+
+    // handle order form -> open WhatsApp chat with prefilled message
+    function submitOrder(e){
+      e.preventDefault();
+      const name = document.getElementById('o_name').value.trim();
+      const phone = document.getElementById('o_phone').value.trim();
+      const product = document.getElementById('o_product').value.trim();
+      const qty = document.getElementById('o_qty').value.trim() || 1;
+      const note = document.getElementById('o_note').value.trim();
+
+      const message = encodeURIComponent(`Halo Es Teh Poci UNSIKA,%0ANama: ${name}%0ANo: ${phone}%0AProduk: ${product}%0AJumlah: ${qty}%0AAlamat/Catatan: ${note}%0A%0AMohon konfirmasi ketersediaan & estimasi antar. Terima kasih!`);
+      // Ganti nomor berikut dengan nomor WA resmi (format internasional tanpa +)
+      const waNumber = '6283865211525';
+      const waUrl = `https://wa.me/${waNumber}?text=${message}`;
+      window.open(waUrl, '_blank');
+      closeModal();
+    }
+
+    // Contact form -> open WhatsApp preset message
+    function sendForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const prod = document.getElementById('orderProduct').value;
+      const note = document.getElementById('note').value.trim();
+
+      if(!prod){ alert('Pilih produk yang ingin dipesan.'); return; }
+      const [pname, price] = prod.split('|');
+      const message = encodeURIComponent(`Halo Es Teh Poci UNSIKA,%0ANama: ${name}%0ANo: ${phone}%0AProduk: ${pname}%0AHarga: Rp ${parseInt(price).toLocaleString()}%0AAlamat/Catatan: ${note}%0A%0AMohon konfirmasi & estimasi antar. Terima kasih!`);
+      const waNumber = '6283865211525';
+      const waUrl = `https://wa.me/${waNumber}?text=${message}`;
+      // show notice and open WA
+      document.getElementById('formMsg').style.display='block';
+      window.open(waUrl, '_blank');
+    }
+
+    // quick WA preset (alternative button)
+    function openWhatsAppPreset(){
+      const waNumber = '6283865211525';
+      const message = encodeURIComponent('Halo Es Teh Poci UNSIKA, saya ingin pesan. Mohon info varian & estimasi antar.');
+      window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+    }
+
+    // start: hook buttons
+    document.getElementById('orderNowBtn').addEventListener('click', ()=> openOrder('Es Teh Original',6000));
+
+    // Accessibility: close modal on ESC
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>

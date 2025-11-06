@@ -1,0 +1,22 @@
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px; /* jarak antara logo dan teks */
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column; /* biar teks p-nya di bawah h1 */
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.brand-text p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
